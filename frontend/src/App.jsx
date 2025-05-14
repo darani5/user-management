@@ -1,9 +1,11 @@
-// src/App.jsx
 import React from 'react';
-import { MantineProvider, Container, Title } from '@mantine/core';
+import {
+  MantineProvider,
+  Container,
+} from '@mantine/core';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Notifications } from '@mantine/notifications';
-import UserTable from './components/UserTable'; // You'll create this next
+import UserTable from './components/UserTable';
 
 const queryClient = new QueryClient();
 
@@ -11,11 +13,20 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <MantineProvider withGlobalStyles withNormalizeCSS>
-        <Notifications position="sm" />
-        <Container>
-          <Title order={2} align="center" my="lg">
-            User Management Dashboard
-          </Title>
+        <Notifications position="top-right" />
+
+        <Container
+          size="xl"
+          fluid
+          px={0}
+          py={0}
+          m={0}
+          style={{
+            marginTop: 0,
+            paddingTop: 0,
+            paddingBottom: 0,
+          }}
+        >
           <UserTable />
         </Container>
       </MantineProvider>
